@@ -1,0 +1,57 @@
+{
+  "name": "platform-core-lib",
+  "version": "0.1.0",
+  "description": "Core library for Platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublish": "npm run build",
+    "test": "set NODE_ENV=test&& tsc --build ./test&& mocha ./test/**/*.js --reporter spec",
+    "example": "cls && npm run build && node ./dist/example/simple.js",
+    "coverage": "nyc npm run test"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "IoT",
+    "smart",
+    "home",
+    "core"
+  ],
+  "author": {
+    "name": "José Gamaliel Rivera Ibarra",
+    "email": "gama.rivera@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "amqplib": "0.6.0",
+    "json-stringify-safe": "5.0.1",
+    "jsonwebtoken": "8.5.1",
+    "mongodb": "3.6.4",
+    "mqtt": "4.2.6",
+    "openapi-types": "7.2.3",
+    "uuid": "8.3.2",
+    "winston": "3.3.3",
+    "winston-daily-rotate-file": "4.5.0"
+  },
+  "devDependencies": {
+    "@types/amqplib": "0.5.17",
+    "@types/chai": "4.2.14",
+    "@types/jsonwebtoken": "8.5.0",
+    "@types/mocha": "8.2.0",
+    "@types/mongodb": "3.6.6",
+    "@types/node": "14.14.25",
+    "@types/uuid": "8.3.0",
+    "chai": "4.3.0",
+    "mocha": "8.2.1",
+    "typescript": "4.1.3"
+  }
+}
