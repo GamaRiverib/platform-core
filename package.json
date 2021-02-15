@@ -9,7 +9,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "prepare": "npm run build",
+    "postinstall": "npm run build",
     "tsc": "tsc",
     "build": "tsc"
   },
