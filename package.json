@@ -10,13 +10,7 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "prepublish": "npm run build",
-    "prepare": "npm run build",
-    "test": "set NODE_ENV=test&& tsc --build ./test&& mocha ./test/**/*.js --reporter spec",
-    "example": "cls && npm run build && node ./dist/example/simple.js",
-    "coverage": "nyc npm run test"
+    "build": "tsc"
   },
   "repository": {
     "type": "git"
