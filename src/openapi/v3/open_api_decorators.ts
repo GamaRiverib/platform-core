@@ -36,7 +36,7 @@ export function Property(params: PropertyDecoratorParams) {
 }
 
 export type PathDecoratorParams = {
-    operation: OpenAPI.Operation,
+    operation?: OpenAPI.Operation,
     $ref?: string,
     summary?: string,
     description?: string;
@@ -50,7 +50,8 @@ export function Path(path: string, method: PathDecoratorMethodParam, params: Pat
     return (target: object, propertyName: string) => {
         const builder = getOpenApiSpecificationBuilder();
         const operation: {[ m: string ]: OpenAPI.Operation } = {};
-        operation[method] = params.operation;
+        operation[method] = params.operation || {};
+        delete params.operation;
         const spec: any = Object.assign({}, params, operation);
         builder.addPath(path, spec);
     }
