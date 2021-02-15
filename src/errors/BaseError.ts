@@ -1,3 +1,8 @@
+import { Schema as Schema2 } from "../openapi/v2";
+import { Schema as Schema3 } from "../openapi/v3";
+
+@Schema2()
+@Schema3()
 export abstract class BaseError {
 
     public message: string = "";
