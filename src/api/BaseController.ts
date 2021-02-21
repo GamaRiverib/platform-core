@@ -14,6 +14,10 @@ export function handleError(error: any, res: any): void {
             res.status(404).send({ error });
             return;
         }
+        if (error.code === "STATE_NOT_VALID_ERROR") {
+            res.status(409).send({ error });
+            return;
+        }
         res.status(400).send({ error });
         return;
     }
