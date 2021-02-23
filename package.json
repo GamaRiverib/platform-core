@@ -28,22 +28,17 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "amqplib": "0.6.0",
     "json-stringify-safe": "5.0.1",
     "jsonwebtoken": "8.5.1",
-    "mongodb": "3.6.4",
-    "mqtt": "4.2.6",
     "openapi-types": "7.2.3",
     "uuid": "8.3.2",
     "winston": "3.3.3",
     "winston-daily-rotate-file": "4.5.0"
   },
   "devDependencies": {
-    "@types/amqplib": "0.5.17",
     "@types/chai": "4.2.14",
     "@types/jsonwebtoken": "8.5.0",
     "@types/mocha": "8.2.0",
-    "@types/mongodb": "3.6.6",
     "@types/node": "14.14.25",
     "@types/uuid": "8.3.0",
     "chai": "4.3.0",
