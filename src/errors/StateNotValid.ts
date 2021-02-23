@@ -1,29 +1,29 @@
-import { BaseError } from "./BaseError";
 import { Schema as Schema2, Property as Property2 } from "../openapi/v2";
 import { Schema as Schema3, Property as Property3 } from "../openapi/v3";
+import { ApiError } from "./ApiError";
 
 @Schema2()
 @Schema3()
-export class DbError extends BaseError {
+export class StateNotValidError extends ApiError {
 
-  static CODE = "DB_ERROR";
-  static DEFAULT_MESSAGE = "Something was wrong with database";
+  static CODE = "STATE_NOT_VALID_ERROR";
+  static DEFAULT_MESSAGE = "Entity invalid state";
 
   constructor(message?: string) {
-    super(message || DbError.DEFAULT_MESSAGE, DbError.CODE);
+    super(message || StateNotValidError.DEFAULT_MESSAGE, StateNotValidError.CODE);
   }
 
   @Property2({
     schema: {
       type: "string",
-      example: DbError.CODE
+      example: StateNotValidError.CODE
     },
     required: true
   })
   @Property3({
     schema: {
       type: "string",
-      example: DbError.CODE
+      example: StateNotValidError.CODE
     },
     required: true
   })
@@ -32,14 +32,14 @@ export class DbError extends BaseError {
   @Property2({
     schema: {
       type: "string",
-      example: DbError.DEFAULT_MESSAGE
+      example: StateNotValidError.DEFAULT_MESSAGE
     },
     required: true
   })
   @Property3({
     schema: {
       type: "string",
-      example: DbError.DEFAULT_MESSAGE
+      example: StateNotValidError.DEFAULT_MESSAGE
     },
     required: true
   })

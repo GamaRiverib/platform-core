@@ -4,26 +4,29 @@ import { Schema as Schema3, Property as Property3 } from "../openapi/v3";
 
 @Schema2()
 @Schema3()
-export class DbError extends BaseError {
+export class ApiValidationError extends BaseError {
 
-  static CODE = "DB_ERROR";
-  static DEFAULT_MESSAGE = "Something was wrong with database";
+  static CODE = "API_VALIDATION_ERROR";
+  static DEFAULT_MESSAGE = "API validation error";
 
-  constructor(message?: string) {
-    super(message || DbError.DEFAULT_MESSAGE, DbError.CODE);
+  validations: Array<any>;
+
+  constructor(message?: string, errors?: Array<any>) {
+    super(message || ApiValidationError.DEFAULT_MESSAGE, ApiValidationError.CODE);
+    this.validations = errors || [];
   }
 
   @Property2({
     schema: {
       type: "string",
-      example: DbError.CODE
+      example: ApiValidationError.CODE
     },
     required: true
   })
   @Property3({
     schema: {
       type: "string",
-      example: DbError.CODE
+      example: ApiValidationError.CODE
     },
     required: true
   })
@@ -32,14 +35,14 @@ export class DbError extends BaseError {
   @Property2({
     schema: {
       type: "string",
-      example: DbError.DEFAULT_MESSAGE
+      example: ApiValidationError.DEFAULT_MESSAGE
     },
     required: true
   })
   @Property3({
     schema: {
       type: "string",
-      example: DbError.DEFAULT_MESSAGE
+      example: ApiValidationError.DEFAULT_MESSAGE
     },
     required: true
   })

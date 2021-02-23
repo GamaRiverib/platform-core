@@ -4,26 +4,26 @@ import { Schema as Schema3, Property as Property3 } from "../openapi/v3";
 
 @Schema2()
 @Schema3()
-export class DbError extends BaseError {
+export class AlreadyExistsError extends BaseError {
 
-  static CODE = "DB_ERROR";
-  static DEFAULT_MESSAGE = "Something was wrong with database";
+  static CODE = "ALREADY_EXISTS_ERROR";
+  static DEFAULT_MESSAGE = "Already exists item id";
 
   constructor(message?: string) {
-    super(message || DbError.DEFAULT_MESSAGE, DbError.CODE);
+    super(message || AlreadyExistsError.DEFAULT_MESSAGE, AlreadyExistsError.CODE);
   }
 
   @Property2({
     schema: {
       type: "string",
-      example: DbError.CODE
+      example: AlreadyExistsError.CODE
     },
     required: true
   })
   @Property3({
     schema: {
       type: "string",
-      example: DbError.CODE
+      example: AlreadyExistsError.CODE
     },
     required: true
   })
@@ -32,14 +32,14 @@ export class DbError extends BaseError {
   @Property2({
     schema: {
       type: "string",
-      example: DbError.DEFAULT_MESSAGE
+      example: AlreadyExistsError.DEFAULT_MESSAGE
     },
     required: true
   })
   @Property3({
     schema: {
       type: "string",
-      example: DbError.DEFAULT_MESSAGE
+      example: AlreadyExistsError.DEFAULT_MESSAGE
     },
     required: true
   })

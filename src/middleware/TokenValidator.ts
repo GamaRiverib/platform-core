@@ -1,6 +1,6 @@
 import { Secret, verify, VerifyOptions/*, TokenExpiredError*/ } from "jsonwebtoken"
 import { MissingAccessTokenError, SchemeAuthorizationError, FormatAccessTokenError, 
-         VerificationAccessTokenError, ExpiredAccessTokenError, AccessForbiddenError } from "../errors/AccessTokenError";
+         VerificationAccessTokenError, ExpiredAccessTokenError, AccessForbiddenError } from "../errors/token";
 
 export function admin_token_validator_middleware(secretOrPublicKey: Secret, options: VerifyOptions, acl: Array<string>): (req: any, res: any, next: any) => void {
 

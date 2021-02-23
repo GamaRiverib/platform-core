@@ -1,35 +1,13 @@
 import { BaseError } from "./BaseError";
+import { Schema as Schema2 } from "../openapi/v2";
+import { Schema as Schema3 } from "../openapi/v3";
 
-export class MissingRequiredParametersError extends BaseError {
-    constructor(message?: string) {
-        super(message || "Missing required parameters", "MISSING_REQUIRED_PARAMETERS");
-    }
-}
+@Schema2()
+@Schema3()
+export class ApiError extends BaseError {
 
-export class NotFoundError extends BaseError {
-    constructor(message?: string) {
-        super(message || "Item not found", "NOT_FOUND_ERROR");
-    }
-}
+  constructor(message: string, code: string) {
+    super(message, code);
+  }
 
-export class DefaultError extends BaseError {
-    constructor(message?: string) {
-        super(message || "Something was wrong!", "DEFAULT_ERROR");
-    }
-}
-
-export class UnhandleError extends BaseError {
-    constructor(message?: string) {
-        super(message || "Something was wrong!", "UNHANDLE_ERROR");
-    }
-}
-
-export class ApiValidationError extends BaseError {
-
-    validations: Array<any>;
-
-    constructor(message?: string, errors?: Array<any>) {
-        super(message || "API validation error", "API_VALIDATION_ERROR");
-        this.validations = errors || [];
-    }
 }
