@@ -112,7 +112,8 @@ export class OpenApiSpecificationBuilder {
         if (!spec.properties) {
             spec.properties = {};
         }
-        spec.properties[name] = schema as OpenAPIV3.SchemaObject;
+        const property = spec.properties[name] || {};
+        spec.properties[name] = Object.assign(property, schema);
         if (required) {
             if (!spec.required) {
                 spec.required = [];
