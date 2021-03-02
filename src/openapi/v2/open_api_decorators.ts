@@ -36,7 +36,6 @@ export function Property(params: PropertyDecoratorParams) {
 
 export function ReferenceObject(type: any) {
   return (target: object, propertyName: string) => {
-    console.log(target);
     const builder = getOpenApiSpecificationBuilder();
     const key = target.constructor.name;
     const name = propertyName;
