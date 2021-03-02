@@ -35,6 +35,19 @@ export function Property(params: PropertyDecoratorParams) {
   }
 }
 
+export function ReferenceObject(type: any) {
+  return (target: object, propertyName: string) => {
+    console.log(target);
+    const builder = getOpenApiSpecificationBuilder();
+    const key = target.constructor.name;
+    const name = propertyName;
+    const schema = {
+      $ref: `#/components/schemas/${type.name}`
+    };
+    builder.addSchemaComponentObjectProperty(key, name, schema);
+  };
+}
+
 export function Array(items: OpenAPIV3.ReferenceObject | OpenAPIV3.SchemaObject) {
   return (target: object, propertyName: string) => {
     const builder = getOpenApiSpecificationBuilder();
