@@ -43,7 +43,6 @@ export function ReferenceObject(type: any) {
     const schema = {
       $ref: `#/components/schemas/${type.name}`
     };
-    console.log({schema});
     builder.addSchemaComponentObjectProperty(key, name, schema);
   };
 }
