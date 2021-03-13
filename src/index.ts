@@ -16,3 +16,19 @@ export function asyncForEach<T>(array: Array<T>, callback: AsyncForEachCb<T>) {
         }
     };
 }
+
+export function randomNumber(max?: number, min?: number): number {
+    if(!max) {
+        max = 100;
+    }
+    if (!min) {
+        min = 0;
+    }
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+export function getEnumValues(type: any, valuesType?: "string" | "number"): string[] | number[] {
+    const keys = Object.keys(type).filter(k => typeof type[k as any] === valuesType || "string");
+    const values = keys.map(k => type[k as any]);
+    return values;
+}
