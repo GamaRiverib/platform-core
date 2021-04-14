@@ -21,6 +21,7 @@ export function handleError(error: any, res: any): void {
     res.status(400).send({ error });
     return;
   }
+  console.error(error);
   logger.error("Unhandle Error", { data: { error } });
   res.status(500).send({ error: new DefaultError() });
 }
