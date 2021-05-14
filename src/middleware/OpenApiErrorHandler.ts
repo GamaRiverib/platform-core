@@ -1,4 +1,7 @@
 import { UnhandleError, ApiValidationError } from "../errors";
+import { getLogger } from "../logger";
+
+const logger = getLogger("OAEH");
 
 const errorCodeReplace: string = ".openapi.validation";
 const pathReplaceBody: string = ".body.";
@@ -17,5 +20,6 @@ export function openApiErrorHandler(error: any, req: any, res: any, next: any): 
         res.status(error.status || 400).send({ error: new ApiValidationError("Request validation error", errors) });
         return;
     }
+    logger.error("Not OpenAPI errors", { data: { error } });
     res.status(error.status || 500).send({ error: new UnhandleError() });
 }
