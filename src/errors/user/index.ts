@@ -6,6 +6,7 @@ export * from "./ContactFormat";
 export * from "./ContactMain";
 export * from "./DefaultUserRepository";
 export * from "./EmailFormat";
+export * from "./EmailRegistered";
 export * from "./GenderFormat";
 export * from "./MaxContact";
 export * from "./NameFormat";
