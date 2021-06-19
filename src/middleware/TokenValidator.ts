@@ -93,7 +93,6 @@ export interface PublicKeyInfo {
 export function jwt_validator_middleware(options: VerifyOptions, secretOrPublicKey?: Secret, getPublicKey?: (kid: string) => Promise<PublicKeyInfo | null>): (req: any, res: any, next: any) => void {
 
     const middleware = async (req: any, res: any, next: any): Promise<void> => {
-        logger.debug("JWT Filter", { data: { endpoint: `${req.baseUrl}${req.url}` } });
         if(!req.headers || !req.headers.authorization) {
             const error: string = "missing_access_token_error";
             res.status(401).send({ error });
