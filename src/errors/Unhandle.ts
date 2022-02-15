@@ -1,5 +1,5 @@
-import { Schema as Schema2, Property as Property2 } from "openapi-utilities-lib/build/lib/v2";
-import { Schema as Schema3, Property as Property3 } from "openapi-utilities-lib/build/lib/v3";
+import { Schema as Schema2, Property as Property2 } from "@gamariverib/openapi-utilities-lib/build/lib/v2";
+import { Schema as Schema3, Property as Property3 } from "@gamariverib/openapi-utilities-lib/build/lib/v3";
 import { BaseError } from "./";
 
 @Schema2()
