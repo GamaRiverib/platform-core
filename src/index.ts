@@ -2,7 +2,7 @@ export * from "./api";
 export * from "./errors";
 export * from "./logger";
 export * from "./middleware";
-export * from "openapi-utilities-lib";
+export * from "@gamariverib/openapi-utilities-lib";
 
 export const HEADER_KEY_SUB: string = "x-subject-id";
 export const HEADER_KEY_CONSUMER: string = "x-consumer-id";
